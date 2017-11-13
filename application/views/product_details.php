@@ -132,7 +132,7 @@
                   <div class="CTA d-flex align-items-center justify-content-center"><a href="ProductDetails?getprodinfo=<?php echo $rows->product_id; ?>&category_id=<?php echo $rows->category_id; ?>" class="visit-product active"><i class="icon-search"></i>View</a></div>
                 </div>
               </div>
-              <div class="title"><a href="#">
+              <div class="title"><a href="ProductDetails?getprodinfo=<?php echo $rows->product_id; ?>&category_id=<?php echo $rows->category_id; ?>">
                   <h3 class="h6 text-uppercase no-margin-bottom"><?php echo $rows->product_name; ?></h3></a><span class="price">₱ <?php echo $rows->price; ?></span></div>
             </div>
           </div>

@@ -90,7 +90,7 @@
 
                 </div>
               </div>
-              <div class="title"><a href="detail.html">
+              <div class="title"><a href="ProductDetails?getprodinfo=<?php echo $rows->product_id; ?>&category_id=<?php echo $rows->category_id; ?>">
                   <h3 class="h6 text-uppercase no-margin-bottom"><?php echo $rows->product_name; ?></h3></a><span class="price text-muted">₱ <price class="prodname_price"><?php echo $rows->price; ?></price></span></div>
             </div>
           </div>
