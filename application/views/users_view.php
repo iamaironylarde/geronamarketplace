@@ -94,14 +94,14 @@
                               <label style="margin-top:8px;" for="inputEmail1">Current Password :</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-tags fa-size" aria-hidden="true"></i></span>
-                                        <input type="text" name="current_password" class="form-control" placeholder="Category Name" data-error-msg="New Password is required." required>
+                                        <input type="password" name="current_password" class="form-control" placeholder="Category Name" data-error-msg="New Password is required." required>
                                 </div>
                           </div>
                           <div class="form-group">
                               <label style="margin-top:8px;" for="inputEmail1">New Password :</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-tags fa-size" aria-hidden="true"></i></span>
-                                        <input type="text" name="new_pass" class="form-control" placeholder="Category Name" data-error-msg="New Password is required." required>
+                                        <input type="password" name="new_pass" class="form-control" placeholder="Category Name" data-error-msg="New Password is required." required>
                                 </div>
                           </div>
                         </div>
