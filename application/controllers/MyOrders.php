@@ -52,7 +52,7 @@ class MyOrders extends CORE_Controller {
                           array('unit','unit.unit_id=order_items.unit_id','left'),
                           array('discount','discount.discount_id=unit.discount_id','left'),
                           array('user_accounts','user_accounts.user_id=orders.user_id','left'),
-                          array('brgy','brgy.brgy_id=user_accounts.brgy_id','left'),
+                          array('brgy','brgy.brgy_id=orders.order_city','left'),
                       )
                     );
 

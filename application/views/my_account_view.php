@@ -39,13 +39,17 @@
                       <div class="form-group">
                         <label for="name" class="form-label">Password *</label>
                         <input type="password" name="user_pword" placeholder="Enter your password" required="required" class="form-control">
+                        
                       </div>
                     </div>
+
                   </div>
               </form>
+
 					<center>
 						<a href="#" class="btn btn-template wide btn_login">Login</a>
-						<loginstatus class="loginstatus"></loginstatus>
+						<loginstatus class="loginstatus"></loginstatus><br>
+            <a href="ForgotPassword" style="margin-top:5px;" >Forgot Password?</a> 
 					</center>
 		    </div>
 		  </div>

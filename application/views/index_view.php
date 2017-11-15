@@ -42,23 +42,26 @@
           <div class="col-lg-4"><a href="ProductCategory?product_type_id=1">
               <div style="background-size:cover;background-image: url('assets/img/meat.jpg');" class="item d-flex align-items-end">
                 <div class="content">
-                  <h3 class="h5">Meat</h3>
+                  
                 </div>
-              </div></a>
+              </div><h3 class="h5">Meat</h3></a>
+              
           </div>
           <div class="col-lg-4"><a href="ProductCategory?product_type_id=2">
               <div style="background-size:cover;background-image: url('assets/img/vege.jpg');" class="item d-flex align-items-end">
                 <div class="content">
-                  <h3 class="h5">Vegetable</h3>
+                  
                 </div>
-              </div></a>
+              </div><h3 class="h5">Vegetable</h3></a>
+              
           </div>
           <div class="col-lg-4"><a href="ProductCategory?product_type_id=3">
               <div style="background-size:cover;background-image: url('assets/img/fish.jpg');" class="item d-flex align-items-end">
                 <div class="content">
-                  <h3 class="h5">Fish</h3>
+                  
                 </div>
-              </div></a>
+              </div><h3 class="h5">Fish</h3></a>
+              
           </div>
         </div>
       </div>
@@ -91,7 +94,7 @@
                 </div>
               </div>
               <div class="title"><a href="ProductDetails?getprodinfo=<?php echo $rows->product_id; ?>&category_id=<?php echo $rows->category_id; ?>">
-                  <h3 class="h6 text-uppercase no-margin-bottom"><?php echo $rows->product_name; ?></h3></a><span class="price text-muted">₱ <price class="prodname_price"><?php echo $rows->price; ?></price></span></div>
+                  <h3 class="h6 text-uppercase no-margin-bottom"><?php echo $rows->product_name; ?></h3></a><span class="price text-muted">₱ <price class="prodname_price"><?php echo $rows->price; ?></price><?php echo ($rows->product_type_id==2) ? '/bundle' :'/kilo'; ?></span></div>
             </div>
           </div>
           <?php } ?>
@@ -132,7 +135,7 @@
                 </div>
               </div>
               <div class="title"><a href="ProductDetails?getprodinfo=<?php echo $rows->product_id; ?>&category_id=<?php echo $rows->category_id; ?>">
-                  <h3 class="h6 text-uppercase no-margin-bottom"><?php echo $best->product_name; ?></h3></a><span class="price text-muted">₱ <price class="prodname_price"><?php echo $best->price; ?></price></span></div>
+                  <h3 class="h6 text-uppercase no-margin-bottom"><?php echo $best->product_name; ?></h3></a><span class="price text-muted">₱ <price class="prodname_price"><?php echo $best->price; ?></price><?php echo ($best->product_type_id==2) ? '/bundle' :'/kilo'; ?></span></div>
             </div>
           </div>
           <?php } ?>

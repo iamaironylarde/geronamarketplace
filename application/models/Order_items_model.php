@@ -9,10 +9,12 @@ class Order_items_model extends CORE_Model {
 
     function get_bestseller(){
 
-        $sql="SELECT products.product_id,products.product_name,products.image1,products.price, SUM(order_qty) AS TotalQuantity
+        $sql="SELECT products.product_id,products.product_name,products.image1,products.price, SUM(order_qty) AS TotalQuantity,category.*
               FROM order_items
               LEFT JOIN products ON
               products.product_id=order_items.product_id
+              LEFT JOIN category ON
+              products.category_id=products.category_id
               GROUP BY product_id
               ORDER BY SUM(order_qty) DESC
               LIMIT 5";

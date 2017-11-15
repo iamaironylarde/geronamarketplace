@@ -55,8 +55,9 @@
                 </tr>
 								<tr>
 									<td width="80"><b>Gerona Tarlac</b></td>
-									<td>Shipping Address : <b><?php echo $order_info[0]->order_address; ?></b></td>
+									<td>Shipping Address : <b><?php echo $order_info[0]->order_address.', '.$order_info[0]->brgy_name; ?></b></td>
                 </tr>
+
 								<tr>
 									<td width="80"></td>
 									<td>Date : <b><?php echo $order_info[0]->order_date; ?></b></td>

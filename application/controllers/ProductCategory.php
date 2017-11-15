@@ -35,7 +35,7 @@ class ProductCategory extends CORE_Controller {
             $category_id = $this->input->get('category',TRUE);
             $data['product_info']=$m_products->get_list(
               'products.is_deleted=0 AND category.product_type_id='.$product_type_id.' AND category.category_id='.$category_id,
-              'products.*,category.category,product_type.product_type',
+              'products.*,category.*,product_type.*',
                 array(
                       array('category','category.category_id=products.category_id','left'),
                       array('product_type','product_type.product_type_id=category.product_type_id','left'),
@@ -45,7 +45,7 @@ class ProductCategory extends CORE_Controller {
           else{
             $data['product_info']=$m_products->get_list(
               'products.is_deleted=0 AND category.product_type_id='.$product_type_id,
-              'products.*,category.category,product_type.product_type',
+              'products.*,category.*,product_type.*',
                 array(
                       array('category','category.category_id=products.category_id','left'),
                       array('product_type','product_type.product_type_id=category.product_type_id','left'),
@@ -61,7 +61,7 @@ class ProductCategory extends CORE_Controller {
           $searchitem = $this->input->get('searchitem',TRUE);
           $data['product_info']=$m_products->get_list(
             'products.is_deleted=0 AND products.product_name LIKE "%'.$searchitem.'%"',
-            'products.*,category.category',
+            'products.*,category.*',
               array(
                     array('category','category.category_id=products.category_id','left'),
                     array('product_type','product_type.product_type_id=category.product_type_id','left'),

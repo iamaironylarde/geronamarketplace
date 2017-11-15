@@ -32,9 +32,10 @@ class Thankyou extends CORE_Controller {
           $order_id=$this->input->get('order_id',TRUE);
           $data['order_info']=$m_orders->get_list(
             'orders.order_id='.$order_id,
-            'orders.*,products.product_name,products.price,order_items.*,CONCAT(user_accounts.user_fname," ",user_accounts.user_lname) as full_name,unit.*,discount.*',
+            'orders.*,products.product_name,products.price,order_items.*,CONCAT(user_accounts.user_fname," ",user_accounts.user_lname) as full_name,unit.*,discount.*,brgy.brgy_name',
             array(
                   array('order_items','order_items.order_id=orders.order_id','left'),
+                  array('brgy','brgy.brgy_id=orders.order_city','left'),
                   array('products','products.product_id=order_items.product_id','left'),
                   array('user_accounts','user_accounts.user_id=orders.user_id','left'),
                   array('unit','unit.unit_id=order_items.unit_id','left'),

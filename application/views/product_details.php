@@ -45,7 +45,7 @@
             <h2><?php echo $product_info[0]->product_name; ?></h2>
             <div class="d-flex align-items-center justify-content-between flex-column flex-sm-row">
               <ul class="price list-inline no-margin">
-                <li class="list-inline-item current">₱ <?php echo number_format($product_info[0]->price,2); ?></li>
+                <li class="list-inline-item current">₱ <?php echo number_format($product_info[0]->price,2); ?><?php echo ($product_info[0]->product_type_id==2) ? '/bundle' :'/kilo'; ?></li>
               </ul>
 
             </div>

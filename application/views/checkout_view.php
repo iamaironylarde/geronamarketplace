@@ -37,35 +37,47 @@
         <div class="row">
           <div class="col-lg-8">
             <ul class="nav nav-pills">
-              <li class="nav-item"><a href="javascript:void();" class="nav-link active">Address</a></li>
-              <li class="nav-item"><a href="javascript:void();" class="nav-link disabled light delmethod">Delivery Method </a></li>
-              <li class="nav-item"><a href="javascript:void();" class="nav-link disabled ordermethod">Order Review</a></li>
+              <li class="nav-item"><a href="javascript:void();" class="nav-link active">Address &nbsp -></a></li>
+              <li class="nav-item"><a href="javascript:void();" class="nav-link disabled light delmethod">Delivery Method &nbsp -></a></li>
+              <li class="nav-item"><a href="javascript:void();" class="nav-link disabled ordermethod">Order Review &nbsp -></a></li>
               <li class="nav-item"><a href="javascript:void();" class="nav-link disabled">Thank You</a></li>
             </ul>
 
             <div class="tab-content coladdress">
               <div id="address" class="active tab-block">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                      <input type="radio" id="option1" class="radio-template" checked>
+                      <label for="option1"><strong>Primary Address</strong><br><span class="label-description">Your profile address</span></label>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <input type="radio" id="option2" class="radio-template">
+                      <label for="option2"><strong>Alternative Address</strong><br><span class="label-description">Alternative delivery address</span></label>
+                    </div>
+                  </div>
                 <form id="checkout_frm">
-                  <div class="row">
-                    <div class="form-group col-md-6">
-                      <label for="firstname" class="form-label">First Name</label>
-                      <input id="firstname" type="text" name="first-name" value="<?php echo $this->session->user_fname; ?>" readonly class="form-control" >
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label for="lastname" class="form-label">Last Name</label>
-                      <input id="lastname" type="text" name="last-name"  value="<?php echo $this->session->user_lname; ?>" readonly class="form-control">
-                    </div>
+                  <div class="row primary-address">
                     <div class="form-group col-md-6">
                       <label for="street" class="form-label">Address</label>
-                      <input id="street" type="text" name="address" value="<?php echo $this->session->user_address; ?>" readonly class="form-control">
+                      <input type="text" id="primary_address" value="<?php echo $this->session->user_address; ?>" readonly class="form-control">
                     </div>
                     <div class="form-group col-md-6">
                       <label for="street" class="form-label">Barangay</label>
-                      <input id="street" type="text" name="address" value="<?php echo $this->session->brgy_name; ?>" readonly class="form-control">
+                      <input type="text" id="primary_brgy_id" value="<?php echo $this->session->brgy_name; ?>" readonly class="form-control">
+                    </div>
+                  </div>
+                  <div class="row alternative-address" style="display:none;">
+                    <div class="form-group col-md-6">
+                      <label for="street" class="form-label">Address</label>
+                      <input type="text" id="alt_order_address" value="" class="form-control">
                     </div>
                     <div class="form-group col-md-6">
-                      <label for="phone-number" class="form-label">Phone Number</label>
-                      <input id="phone-number" type="tel" name="phone-number" value="<?php echo $this->session->user_mobile; ?>" readonly class="form-control">
+                      <label class="form-label">Barangay</label>
+                      <select class="form-control" style="padding:0;" id="alt_brgy_id">
+                          <?php foreach($barangay as $brgy){ ?>
+                              <option value="<?php echo $brgy->brgy_id; ?>">&nbsp&nbsp&nbsp&nbsp<?php echo $brgy->brgy_name; ?></option>
+                          <?php  } ?>
+                        </select>
                     </div>
                   </div>
                 <div class="CTAs d-flex justify-content-between flex-column flex-lg-row">
@@ -178,6 +190,20 @@
     <?php echo $_def_js_files; ?>
     <script>
 
+    var addresstype=1;
+    $('#option2').click(function(){
+      $('.alternative-address').show();
+      $('.primary-address').hide();
+      $('#option1').prop('checked', false);
+      addresstype=2;
+    });
+
+    $('#option1').click(function(){
+      $('.alternative-address').hide();
+      $('.primary-address').show();
+      $('#option2').prop('checked', false);
+      addresstype=1;
+    });
 
     $('#gotopayment').click(function(){
       $('.coladdress').hide();
@@ -222,7 +248,14 @@
 
 	var Ordernow=function(newval){
       var _data=$('#checkout_frm').serializeArray();
-
+      if(addresstype==1){
+        _data.push({name : "order_address" ,value : $('#primary_address').val() });
+        _data.push({name : "order_city" ,value : $('#primary_brgy_id').val() });
+      }
+      else{
+        _data.push({name : "order_address" ,value : $('#alt_order_address').val() });
+        _data.push({name : "order_city" ,value : $('#alt_brgy_id').val() });
+      }
       return $.ajax({
           "dataType":"json",
           "type":"POST",

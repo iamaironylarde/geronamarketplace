@@ -48,7 +48,7 @@ class Index extends CORE_Controller {
 
         $data['products_new']=$m_products->get_list(
           'products.is_deleted=0 AND products.is_newarrival=1',
-          'products.*,category.category',
+          'products.*,category.*',
                     array(
                           array('category','category.category_id=products.category_id','left')
                       )
@@ -56,7 +56,7 @@ class Index extends CORE_Controller {
 
         $data['products_new2']=$m_products->get_list(
           'products.is_deleted=0 AND products.is_newproduct=1',
-          'products.*,category.category',
+          'products.*,category.*',
                     array(
                           array('category','category.category_id=products.category_id','left')
                       )

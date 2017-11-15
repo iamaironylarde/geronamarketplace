@@ -11,6 +11,7 @@ class Checkout extends CORE_Controller {
         $this->load->model('Category_model');
         $this->load->model('Cart_model');
         // $this->load->model('Users_model');
+        $this->load->model('Barangay_model');
         $this->validate_session();
 
     }
@@ -21,6 +22,7 @@ class Checkout extends CORE_Controller {
         $m_carousel=$this->Carousel_model;
         $m_category=$this->Category_model;
         $m_products=$this->Products_model;
+        $m_barangay=$this->Barangay_model;
         $m_cart=$this->Cart_model;
         $data['_title']="Gerona Marketplace";
         //to view categories in navigation
@@ -39,7 +41,7 @@ class Checkout extends CORE_Controller {
                           array('discount','discount.discount_id=unit.discount_id','left'),
                       )
                     );
-
+        $data['barangay']=$m_barangay->get_list();
         $data['_footer']=$this->load->view('template/elements/footer','',TRUE);
         $data['_def_css_files']=$this->load->view('template/assets/css_files','',TRUE);
         $data['_def_js_files']=$this->load->view('template/assets/js_files','',TRUE);
