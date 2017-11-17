@@ -67,7 +67,7 @@
       </div>
     </section>
     <!-- Men's Collection -->
-    <section class="men-collection gray-bg">
+    <section class="men-collection">
       <div class="container">
         <header class="text-center">
           <h2 class="text-uppercase">New Products</h2>
@@ -84,7 +84,7 @@
             <input type="hidden" class="product_price" value="<?php echo $rows->price; ?>">
             <input type="hidden" class="product_image" value="<?php echo $rows->image1; ?>">
             <div class="product is-gray">
-              <div class="image d-flex align-items-center justify-content-center"><img src="<?php echo $rows->image1; ?>" alt="product" class="img-fluid">
+              <div class="image d-flex align-items-center justify-content-center"><img style="width:100% !important;height:100% !important;" src="<?php echo $rows->image1; ?>" alt="product" class="img-fluid">
                 <div class="hover-overlay d-flex align-items-center justify-content-center">
                   <div class="CTA d-flex align-items-center justify-content-center">
                     <a href="ProductDetails?getprodinfo=<?php echo $rows->product_id; ?>&category_id=<?php echo $rows->category_id; ?>" class="visit-product active"><i class="icon-search"></i>View</a>
@@ -125,7 +125,7 @@
           <?php foreach($best_seller as $best){ ?>
           <div class="item">
             <div class="product is-gray">
-              <div class="image d-flex align-items-center justify-content-center"><img src="<?php echo $best->image1; ?>" alt="product" class="img-fluid">
+              <div class="image d-flex align-items-center justify-content-center"><img style="width:100% !important;height:100% !important;" src="<?php echo $best->image1; ?>" alt="product" class="img-fluid">
                 <div class="hover-overlay d-flex align-items-center justify-content-center">
                   <div class="CTA d-flex align-items-center justify-content-center">
                     <a href="ProductDetails?getprodinfo=<?php echo $rows->product_id; ?>&category_id=<?php echo $rows->category_id; ?>" class="visit-product active"><i class="icon-search"></i>View</a>

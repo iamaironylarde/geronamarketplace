@@ -127,7 +127,7 @@
           <!-- item-->
           <div class="item col-lg-3">
             <div class="product is-gray">
-              <div class="image d-flex align-items-center justify-content-center"><img src="<?php echo $rows->image1; ?>" alt="..." class="img-fluid">
+              <div class="image d-flex align-items-center justify-content-center" style="max-width:100% !important;"><img style="width:100% !important;height:100%;" src="<?php echo $rows->image1; ?>" alt="..." class="img-fluid">
                 <div class="hover-overlay d-flex align-items-center justify-content-center">
                   <div class="CTA d-flex align-items-center justify-content-center"><a href="ProductDetails?getprodinfo=<?php echo $rows->product_id; ?>&category_id=<?php echo $rows->category_id; ?>" class="visit-product active"><i class="icon-search"></i>View</a></div>
                 </div>
