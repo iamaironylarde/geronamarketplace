@@ -32,6 +32,12 @@ class Cart extends CORE_Controller {
                 echo json_encode($response);
             break;
 
+            case 'getallreservations':
+                $m_cart = $this->Cart_model;
+                $response['data']=$m_cart->getall_reserveproducts();
+                echo json_encode($response);
+            break;
+
             case 'create':
                 $m_cart = $this->Cart_model;
                 $user_id=$this->session->user_id;

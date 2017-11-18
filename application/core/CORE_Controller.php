@@ -19,7 +19,7 @@ class CORE_Controller extends CI_Controller
         if(!$this->session->user_id){
             redirect(base_url().'Index');
         }
-        if($this->session->user_group_id==3){
+        if($this->session->user_group_id==2){
             redirect(base_url().'Index');
         }
     }

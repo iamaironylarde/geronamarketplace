@@ -24,6 +24,14 @@
           </a>
         </li>
         <li class="treeview">
+          <a href="AdminReservations">
+            <i class="fa fa-dashboard"></i> <span>Reservations</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+        </li>
+        <li class="treeview">
           <a href="Orders">
             <i class="fa fa-dashboard"></i> <span>Orders</span>
             <span class="pull-right-container">
