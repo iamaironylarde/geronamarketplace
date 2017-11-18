@@ -91,7 +91,7 @@
                                     <label style="margin-top:8px;" for="inputEmail1">Product Type  :</label>
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-columns" aria-hidden="true"></i></span>
-                                            <select name="product_type_id" class="form-control" data-error-msg="Category is required." required>
+                                            <select name="product_type_id" class="form-control product_type_id" data-error-msg="Category is required." required>
                                                   <?php foreach($product_type as $row){ ?>
                                                       <option value="<?php echo $row->product_type_id; ?>"><?php echo $row->product_type; ?></option>
                                                   <?php } ?>
@@ -226,6 +226,7 @@
         var data=dt.row(_selectRowObj).data();
         _selectedID=data.category_id;
         img1=data.carousel_photo;
+        $('.product_type_id').val(data.product_type_id);
         //$('#emp_exemptpagibig').val(data.emp_exemptphilhealth);
 
        // alert($('input[name="tax_exempt"]').length);
