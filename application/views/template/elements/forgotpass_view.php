@@ -10,8 +10,9 @@
 	Simply click on the button to set a new password
 
 	</p>
-	<btn align="center" style="width:300;height:40;background-color:#3498db;-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; color: #ffffff; display: block;" >
-		<a href="<?php echo $base; ?>ForgotPassword/transaction/checktoken?user_id=<?php echo $user_id; ?>&token=<?php echo $token_id; ?>" style="font-size:16px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; text-decoration: none; line-height:40px; width:100%; display:inline-block"><span style="color: #FFFFFF">Set a New Password</span></a>
-	</btn>
+
+	
+
+	<div id="button" style="width:200px;height:50px;border-radius:10px;background-color:#2980b9;color:#ecf0f1;font-size:14pt;"><center><a href="<?php echo $base; ?>ForgotPassword/transaction/checktoken?user_id=<?php echo $user_id; ?>&token=<?php echo $token_id; ?>" target="_blank"><font color="#ecf0f1">Set a New Password</font></a></center></div>
 </body>
 </html>
