@@ -40,7 +40,7 @@
               <li class="nav-item"><a href="javascript:void();" class="nav-link active">Address &nbsp -></a></li>
               <li class="nav-item"><a href="javascript:void();" class="nav-link disabled light delmethod">Delivery Method &nbsp -></a></li>
               <li class="nav-item"><a href="javascript:void();" class="nav-link disabled ordermethod">Order Review &nbsp -></a></li>
-              <li class="nav-item"><a href="javascript:void();" class="nav-link disabled">Thank You</a></li>
+              <li class="nav-item"><a href="javascript:void();" class="nav-link disabled">Order Placed</a></li>
             </ul>
 
             <div class="tab-content coladdress">

@@ -94,7 +94,7 @@
                 </div>
               </div>
               <div class="title"><a href="ProductDetails?getprodinfo=<?php echo $rows->product_id; ?>&category_id=<?php echo $rows->category_id; ?>">
-                  <h3 class="h6 text-uppercase no-margin-bottom"><?php echo $rows->product_name; ?></h3></a><span class="price text-muted">₱ <price class="prodname_price"><?php echo $rows->price; ?></price><?php echo ($rows->product_type_id==2) ? '/bundle' :'/kilo'; ?></span></div>
+                  <h3 class="h6 text-uppercase no-margin-bottom"><?php echo $rows->product_name; ?></h3></a><span class="price text-muted">₱ <price class="prodname_price"><?php echo $rows->price; ?></price><?php echo ($rows->product_type_id==2) ? '/kilo' :'/kilo'; ?></span></div>
             </div>
           </div>
           <?php } ?>
@@ -135,7 +135,7 @@
                 </div>
               </div>
               <div class="title"><a href="ProductDetails?getprodinfo=<?php echo $rows->product_id; ?>&category_id=<?php echo $rows->category_id; ?>">
-                  <h3 class="h6 text-uppercase no-margin-bottom"><?php echo $best->product_name; ?></h3></a><span class="price text-muted">₱ <price class="prodname_price"><?php echo $best->price; ?></price><?php echo ($best->product_type_id==2) ? '/bundle' :'/kilo'; ?></span></div>
+                  <h3 class="h6 text-uppercase no-margin-bottom"><?php echo $best->product_name; ?></h3></a><span class="price text-muted">₱ <price class="prodname_price"><?php echo $best->price; ?></price><?php echo ($best->product_type_id==2) ? '/kilo' :'/kilo'; ?></span></div>
             </div>
           </div>
           <?php } ?>
