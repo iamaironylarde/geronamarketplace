@@ -44,7 +44,7 @@
           <div class="row">
             <div class="col-md-4">
               <center>
-                <img src="<?php if($this->session->user_photo!=""){ echo $this->session->user_photo; } else { ?>assets/img/user.png<?php } ?>" width="200px" height="200px" class="img-responsive" style="border-radius:10px;">
+                <img src="<?php if($this->session->user_photo!=""){ echo $this->session->user_photo; } else { ?>assets/img/user.png<?php } ?>" width="200px" height="200px" class="img-responsive usrimageview" style="border-radius:10px;">
                 <input type="file" name="user_imagetmp[]" class="form-control input-text">
                 
               </center>
@@ -134,7 +134,7 @@
               processData : false,
               contentType : false,
               success : function(response){
-                alert(response.path);
+                  $('.usrimageview').attr('src',response.path);
                   $('#user_image').val(response.path);
               }
           });
