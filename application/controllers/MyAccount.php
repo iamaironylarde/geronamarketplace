@@ -80,7 +80,7 @@ class MyAccount extends CORE_Controller {
 
                                 )
                             );
-
+                
                             $response['stat']='success';
                             $response['msg']='User successfully authenticated.';
                             $response['user_group_id']=$result->row()->user_group_id;

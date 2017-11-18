@@ -63,7 +63,8 @@
                     </div>
                     <div class="form-group col-md-6">
                       <label for="street" class="form-label">Barangay</label>
-                      <input type="text" id="primary_brgy_id" value="<?php echo $this->session->brgy_name; ?>" readonly class="form-control">
+                      <input type="text" value="<?php echo $this->session->brgy_name; ?>" readonly class="form-control">
+                      <input type="hidden" id="primary_brgy_id" value="<?php echo $this->session->brgy_id; ?>" readonly class="form-control">
                     </div>
                   </div>
                   <div class="row alternative-address" style="display:none;">
