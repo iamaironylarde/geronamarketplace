@@ -63,7 +63,7 @@
                     </div>
                     <div class="form-group col-md-6">
                       <label for="street" class="form-label">Barangay</label>
-                      <input type="text" value="<?php echo $this->session->brgy_name; ?>" readonly class="form-control">
+                      <input type="text" value="<?php echo $this->session->brgy_name; ?>" readonly class="form-control pr_eta" data-preta="<?php echo $this->session->eta_delivery; ?>">
                       <input type="hidden" id="primary_brgy_id" value="<?php echo $this->session->brgy_id; ?>" readonly class="form-control">
                     </div>
                   </div>
@@ -74,13 +74,14 @@
                     </div>
                     <div class="form-group col-md-6">
                       <label class="form-label">Barangay</label>
-                      <select class="form-control" style="padding:0;" id="alt_brgy_id">
+                      <select class="form-control altbrgy" style="padding:0;" id="alt_brgy_id">
                           <?php foreach($barangay as $brgy){ ?>
-                              <option value="<?php echo $brgy->brgy_id; ?>">&nbsp&nbsp&nbsp&nbsp<?php echo $brgy->brgy_name; ?></option>
+                              <option value="<?php echo $brgy->brgy_id; ?>" data-eta="<?php echo $brgy->eta_delivery; ?>">&nbsp&nbsp&nbsp&nbsp<?php echo $brgy->brgy_name; ?></option>
                           <?php  } ?>
                         </select>
                     </div>
                   </div>
+                  <p>average delivery time might take <b style="color:#27ae60;" class="etatext"><?php echo $this->session->eta_delivery; ?></b> minutes after the item is shipped.</p>
                 <div class="CTAs d-flex justify-content-between flex-column flex-lg-row">
                   <a href="ShoppingCart" class="btn btn-template-outlined wide prev"> <i class="fa fa-angle-left"></i>Back to basket</a>
                   <a href="javascript:void();" class="btn btn-template wide next" id="gotopayment">Choose delivery method<i class="fa fa-angle-right"></i></a></div>
@@ -193,6 +194,7 @@
 
     var addresstype=1;
     $('#option2').click(function(){
+      $('.altbrgy').trigger("change");
       $('.alternative-address').show();
       $('.primary-address').hide();
       $('#option1').prop('checked', false);
@@ -200,6 +202,8 @@
     });
 
     $('#option1').click(function(){
+      var pr = $('.pr_eta').attr('data-preta');
+      $('.etatext').text(pr);
       $('.alternative-address').hide();
       $('.primary-address').show();
       $('#option2').prop('checked', false);
@@ -245,6 +249,13 @@
   		}).always(function(){
   		});
     });
+
+    $('.altbrgy').change(function(){
+      var _eta = $(this).find('option:selected').attr('data-eta');
+      $('.etatext').text(_eta);
+    })
+
+
 
 
 	var Ordernow=function(newval){

@@ -77,6 +77,7 @@ class MyAccount extends CORE_Controller {
                                     'photo_path'=>$result->row()->photo_path,
                                     'brgy_id'=>$result->row()->brgy_id,
                                     'brgy_name'=>$result->row()->brgy_name,
+                                    'eta_delivery'=>$result->row()->eta_delivery,
 
                                 )
                             );
@@ -136,6 +137,7 @@ class MyAccount extends CORE_Controller {
                     $m_users->modify($user_id);
                     $full_name = $this->input->post('user_fname', TRUE) .' '. $this->input->post('user_lname', TRUE);
                     $brgys=$m_brgy->get_list('brgy_id='.$brgy_id,'brgy.*');
+
                     $this->session->set_userdata(
                         array(
                             'user_fullname'=>$full_name,
@@ -145,6 +147,9 @@ class MyAccount extends CORE_Controller {
                             'user_mobile'=>$this->input->post('user_mobile', TRUE),
                             'brgy_id'=>$this->input->post('brgy_id', TRUE),
                             'brgy_name'=>$brgys[0]->brgy_name,
+                            'eta_delivery'=>$brgys[0]->eta_delivery,
+                            
+
                         )
                     );
                     if( $this->input->post('user_image', TRUE) != "" ){
