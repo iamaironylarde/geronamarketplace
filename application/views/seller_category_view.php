@@ -195,7 +195,7 @@
                     //alert("aw");
                     createCategory().done(function(response){
                         showNotification(response);
-                        dt.row.add(response.row_added[0]).draw();
+                        dt.row.add(response.row_added[0]).draw(false);
                         clearFields($('#frm_category'))
                     }).always(function(){
                         $('#modal_category').modal('hide');
@@ -207,7 +207,7 @@
                     //alert("update");
                     updateCategory().done(function(response){
                         showNotification(response);
-                        dt.row(_selectRowObj).data(response.row_updated[0]).draw();
+                        dt.row(_selectRowObj).data(response.row_updated[0]).draw(false);
                         clearFields($('#frm_category'));
                     }).always(function(){
                         $('#modal_category').modal('hide');
@@ -253,7 +253,7 @@
         _selectedStat=data.is_active;
         ChangeStat().done(function(response){
                         showNotification(response);
-                        dt.row(_selectRowObj).data(response.row_updated[0]).draw();
+                        dt.row(_selectRowObj).data(response.row_updated[0]).draw(false);
                     }).always(function(){
                         $.unblockUI();
                     });
@@ -328,7 +328,7 @@
                     if (isConfirm) {
                             removeCategory().done(function(response){
                             showNotification(response);
-                                dt.row(_selectRowObj).remove().draw();
+                                dt.row(_selectRowObj).remove().draw(false);
                            $.unblockUI();
                             });
 

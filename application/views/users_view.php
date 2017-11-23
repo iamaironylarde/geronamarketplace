@@ -167,7 +167,7 @@
         _selectedStat=data.is_active;
         ChangeStat().done(function(response){
                         showNotification(response);
-                        dt.row(_selectRowObj).data(response.row_updated[0]).draw();
+                        dt.row(_selectRowObj).data(response.row_updated[0]).draw(false);
                     }).always(function(){
                         $.unblockUI();
                     });
@@ -241,7 +241,7 @@
                     if (isConfirm) {
                             removeUser().done(function(response){
                             showNotification(response);
-                                dt.row(_selectRowObj).remove().draw();
+                                dt.row(_selectRowObj).remove().draw(false);
                            $.unblockUI();
                             });
 

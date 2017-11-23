@@ -186,7 +186,7 @@
                     //alert("aw");
                     createCarousel().done(function(response){
                         showNotification(response);
-                        dt.row.add(response.row_added[0]).draw();
+                        dt.row.add(response.row_added[0]).draw(false);
                         clearFields($('#frm_carousel'))
                     }).always(function(){
                         $('#modal_carousel').modal('hide');
@@ -198,7 +198,7 @@
                     //alert("update");
                     updateCarousel().done(function(response){
                         showNotification(response);
-                        dt.row(_selectRowObj).data(response.row_updated[0]).draw();
+                        dt.row(_selectRowObj).data(response.row_updated[0]).draw(false);
                     }).always(function(){
                         $('#modal_carousel').modal('hide');
                         $.unblockUI();
@@ -245,7 +245,7 @@
         _selectedStat=data.is_active;
         ChangeStat().done(function(response){
                         showNotification(response);
-                        dt.row(_selectRowObj).data(response.row_updated[0]).draw();
+                        dt.row(_selectRowObj).data(response.row_updated[0]).draw(false);
                     }).always(function(){
                         $('#modal_carousel').modal('hide');
                         $.unblockUI();
@@ -315,7 +315,7 @@
                     if (isConfirm) {
                             removeCarousel().done(function(response){
                             showNotification(response);
-                                dt.row(_selectRowObj).remove().draw();
+                                dt.row(_selectRowObj).remove().draw(false);
                            $.unblockUI();
                             });
 

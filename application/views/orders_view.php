@@ -165,7 +165,7 @@
         _selectedStat=1;
         ChangeStat().done(function(response){
                         showNotification(response);
-                        dt.row(_selectRowObj).data(response.row_updated[0]).draw();
+                        dt.row(_selectRowObj).data(response.row_updated[0]).draw(false);
                     }).always(function(){
                         $.unblockUI();
                     });
@@ -178,7 +178,7 @@
         _selectedStat=2;
         ChangeStat().done(function(response){
                         showNotification(response);
-                        dt.row(_selectRowObj).data(response.row_updated[0]).draw();
+                        dt.row(_selectRowObj).data(response.row_updated[0]).draw(false);
                     }).always(function(){
                         $.unblockUI();
                     });
@@ -191,7 +191,7 @@
         _selectedStat=3;
         ChangeStat().done(function(response){
                         showNotification(response);
-                        dt.row(_selectRowObj).data(response.row_updated[0]).draw();
+                        dt.row(_selectRowObj).data(response.row_updated[0]).draw(false);
                     }).always(function(){
                         $.unblockUI();
                     });

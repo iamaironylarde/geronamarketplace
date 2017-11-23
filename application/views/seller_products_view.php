@@ -244,7 +244,7 @@
                     //alert("aw");
                     createProducts().done(function(response){
                         showNotification(response);
-                        dt.row.add(response.row_added[0]).draw();
+                        dt.row.add(response.row_added[0]).draw(false);
                         clearFields($('#frm_products'))
                     }).always(function(){
                         $('#modal_products').modal('hide');
@@ -256,7 +256,7 @@
                     //alert("update");
                     updateProducts().done(function(response){
                         showNotification(response);
-                        dt.row(_selectRowObj).data(response.row_updated[0]).draw();
+                        dt.row(_selectRowObj).data(response.row_updated[0]).draw(false);
                         clearFields($('#frm_products'));
                     }).always(function(){
                         $('#modal_products').modal('hide');
@@ -305,7 +305,7 @@
         _selectedStat=data.is_newarrival;
         ChangeStat().done(function(response){
                         showNotification(response);
-                        dt.row(_selectRowObj).data(response.row_updated[0]).draw();
+                        dt.row(_selectRowObj).data(response.row_updated[0]).draw(false);
                     }).always(function(){
                         $('#modal_carousel').modal('hide');
                         $.unblockUI();
@@ -376,7 +376,7 @@
                     if (isConfirm) {
                             removeProducts().done(function(response){
                             showNotification(response);
-                                dt.row(_selectRowObj).remove().draw();
+                                dt.row(_selectRowObj).remove().draw(false);
                            $.unblockUI();
                             });
 
