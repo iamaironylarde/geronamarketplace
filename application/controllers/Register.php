@@ -68,7 +68,7 @@ class Register extends CORE_Controller {
                           $m_users->brgy_id = $this->input->post('brgy_id', TRUE);
                           $m_users->user_mobile = $this->input->post('user_mobile', TRUE);
                           $m_users->user_pword=sha1($this->input->post('user_pword',TRUE));
-                          $m_users->user_group_id = 2;
+                          $m_users->user_group_id = $this->input->post('user_group_id', TRUE);
                           $m_users->date_created = date('Y-m-d H:i:s');
                           $m_users->save();
 

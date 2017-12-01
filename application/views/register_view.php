@@ -95,6 +95,17 @@
                     </div>
                   </div>
                   <div class="row">
+                    <div class="col-sm-6" style="float: none;  margin: 0 auto;">
+                      <div class="form-group">
+                        <label for="name" class="form-label">Account Type *</label>
+                        <select class="form-control" style="padding:0 0 0 20px;" name="user_group_id">
+                          <option value="2">Buyer</option>
+                          <option value="3">Seller</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
 										<div class="col-sm-6" style="float: none;  margin: 0 auto;">
                       <div class="validationerrors" style="text-align:center;">
                       </div>

@@ -75,9 +75,13 @@
 											window.location.href = "Products";
 										}
 										if(response.user_group_id==2){
-											// 3 is buyer
+											// 2 is buyer
 											window.location.href = "Index";
 										}
+                    if(response.user_group_id==3){
+                      // 3 is seller
+                      window.location.href = "Products";
+                    }
                 },600);
             }
             else{
