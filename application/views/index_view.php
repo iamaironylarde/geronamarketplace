@@ -128,13 +128,13 @@
               <div class="image d-flex align-items-center justify-content-center"><img style="width:100% !important;height:100% !important;" src="<?php echo $best->image1; ?>" alt="product" class="img-fluid">
                 <div class="hover-overlay d-flex align-items-center justify-content-center">
                   <div class="CTA d-flex align-items-center justify-content-center">
-                    <a href="ProductDetails?getprodinfo=<?php echo $rows->product_id; ?>&category_id=<?php echo $rows->category_id; ?>" class="visit-product active"><i class="icon-search"></i>View</a>
+                    <a href="ProductDetails?getprodinfo=<?php echo $best->product_id; ?>&category_id=<?php echo $best->category_id; ?>" class="visit-product active"><i class="icon-search"></i>View</a>
 
                   </div>
 
                 </div>
               </div>
-              <div class="title"><a href="ProductDetails?getprodinfo=<?php echo $rows->product_id; ?>&category_id=<?php echo $rows->category_id; ?>">
+              <div class="title"><a href="ProductDetails?getprodinfo=<?php echo $best->product_id; ?>&category_id=<?php echo $best->category_id; ?>">
                   <h3 class="h6 text-uppercase no-margin-bottom"><?php echo $best->product_name; ?></h3></a><span class="price text-muted">₱ <price class="prodname_price"><?php echo $best->price; ?></price><?php echo ($best->product_type_id==2) ? '/kilo' :'/kilo'; ?></span></div>
             </div>
           </div>
