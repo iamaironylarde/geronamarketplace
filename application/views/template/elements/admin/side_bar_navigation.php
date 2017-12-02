@@ -66,6 +66,14 @@
             </span>
           </a>
         </li>
+        <li class="treeview">
+          <a href="UserShops">
+            <i class="fa fa-dashboard"></i> <span>Shops</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+        </li>
         <?php
           }
         ?>

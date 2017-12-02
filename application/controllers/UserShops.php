@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class UserAccounts extends CORE_Controller {
+class UserShops extends CORE_Controller {
 
     function __construct()
     {
@@ -20,8 +20,8 @@ class UserAccounts extends CORE_Controller {
         $data['_top_navigation']=$this->load->view('template/elements/admin/top_navigation','',TRUE);
         $data['_side_navigation']=$this->load->view('template/elements/admin/side_bar_navigation','',TRUE);
         $data['_right_navigation']=$this->load->view('template/elements/admin/right_bar_navigation','',TRUE);
-        $data['_title'] = 'User Accounts';
-        $this->load->view('users_view',$data);
+        $data['_title'] = 'Shops';
+        $this->load->view('users_shops_view',$data);
 
     }
 
@@ -30,7 +30,7 @@ class UserAccounts extends CORE_Controller {
 
             case 'list':
                 $m_users = $this->Users_model;
-                $response['data']=$m_users->get_list('user_accounts.is_deleted=0 AND user_accounts.user_id!=1 AND user_group_id IN (2)','user_accounts.*,CONCAT(user_accounts.user_fname," ",user_accounts.user_mname," ",user_accounts.user_lname) as fullname');
+                $response['data']=$m_users->get_list('user_accounts.is_deleted=0 AND user_accounts.user_id!=1 AND user_group_id IN (3)','user_accounts.*,CONCAT(user_accounts.user_fname," ",user_accounts.user_mname," ",user_accounts.user_lname) as fullname');
                 echo json_encode($response);
             break;
 
@@ -107,7 +107,7 @@ class UserAccounts extends CORE_Controller {
                 $response['title']='Success!';
                 $response['stat']='success';
                 $response['msg']='User information successfully updated.';
-                $response['row_updated']=$m_users->get_list('user_accounts.is_deleted=0 AND user_accounts.user_id!=1 AND user_group_id IN (2)','user_accounts.*,CONCAT(user_accounts.user_fname," ",user_accounts.user_mname," ",user_accounts.user_lname) as fullname');
+                $response['row_updated']=$m_users->get_list('user_accounts.is_deleted=0 AND user_accounts.user_id!=1 AND user_group_id IN (3)','user_accounts.*,CONCAT(user_accounts.user_fname," ",user_accounts.user_mname," ",user_accounts.user_lname) as fullname');
 
                 echo json_encode($response);
 

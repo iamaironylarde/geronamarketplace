@@ -26,7 +26,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        User Accounts / Buyers
+        Shops
         <small>Reference</small>
       </h1>
       <ol class="breadcrumb">
@@ -44,7 +44,8 @@
                 <thead class="tbl-header">
                     <tr>
                         <th style="width:100px !important;">User Name</th>
-                        <th >Fullname</th>
+                        <th >Owner</th>
+                        <th >Shop Name</th>
                         <th style="text-align:center;">Action</th>
                     </tr>
                 </thead>
@@ -52,8 +53,9 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th style="width:100px !important;">User Photo</th>
-                        <th >User Name</th>
+                        <th style="width:100px !important;">User Name</th>
+                        <th >Owner</th>
+                        <th >Shop Name</th>
                         <th style="text-align:center;">Action</th>
                     </tr>
                 </tfoot>
@@ -135,11 +137,12 @@
         var initializeControls=function(){
         dt=$('#tbl_User').DataTable({
             "aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-            "ajax" : "UserAccounts/transaction/list",
+            "ajax" : "UserShops/transaction/list",
             "columns": [
                 { targets:[0],data: "user_name"},
-                { targets:[1],data: "fullname" },
-                { targets:[2],data: "is_active",
+                { targets:[1],data: "fullname"},
+                { targets:[2],data: "shop_name" },
+                { targets:[3],data: "is_active",
                     render: function (data, type, full, meta){
                         if(data==1){
                             var _view='<button class="btn btn-sm" name="changestat" data-toggle="tooltip" data-placement="top" title="Set as inactive"><i class="fa fa-eye"></i> </button>';
@@ -200,7 +203,7 @@
             return $.ajax({
                 "dataType":"json",
                 "type":"POST",
-                "url":"UserAccounts/transaction/delete",
+                "url":"UserShops/transaction/delete",
                 "data":{user_id : _selectedID},
                 "beforeSend": showSpinningProgress($('#'))
             });
@@ -210,7 +213,7 @@
         return $.ajax({
             "dataType":"json",
             "type":"POST",
-            "url":"UserAccounts/transaction/changestat",
+            "url":"UserShops/transaction/changestat",
             "data":{user_id : _selectedID,is_active : _selectedStat},
             "beforeSend": showSpinningProgress($('#'))
         });
@@ -221,7 +224,7 @@
         return $.ajax({
             "dataType":"json",
             "type":"POST",
-            "url":"UserAccounts/transaction/changepassword",
+            "url":"UserShops/transaction/changepassword",
             "data":_data,
             "beforeSend": showSpinningProgress($('#'))
         });
