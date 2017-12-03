@@ -34,7 +34,14 @@ class Cart extends CORE_Controller {
 
             case 'getallreservations':
                 $m_cart = $this->Cart_model;
-                $response['data']=$m_cart->getall_reserveproducts();
+                $user_id=$this->session->user_id;
+                if($this->session->user_group_id==3){
+                  $filter="AND usershop.user_id=".$user_id;
+                }
+                else{
+                  $filter="";
+                }
+                $response['data']=$m_cart->getall_reserveproducts($filter);
                 echo json_encode($response);
             break;
 

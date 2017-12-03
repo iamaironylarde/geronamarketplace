@@ -44,6 +44,7 @@
                     <tr>
                         <th >Products Name</th>
                         <th >Weight</th>
+                        <th >Shop Name</th>
                         <th >Reserved By</th>
                     </tr>
                 </thead>
@@ -53,6 +54,7 @@
                     <tr>
                         <th >Products Name</th>
                         <th >Weight</th>
+                        <th >Shop Name</th>
                         <th >Reserved By</th>
                     </tr>
                 </tfoot>
@@ -113,6 +115,7 @@
             "columns": [
                 { targets:[0],data: "product_name" },
                 { targets:[1],data: "quantity" },
+                { targets:[1],data: "shop_name" },
                 { targets:[2],data: "reservedby" }
 
             ],

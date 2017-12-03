@@ -53,6 +53,12 @@
             <hr>
             <h5><?php echo $product_info[0]->qty; ?> Stock Left</h5>
             <hr>
+            <?php if($product_info[0]->shop_name!=NULL){ ?>
+              <h5>Shop Name : <a href="ProductCategory?searchitem=<?php echo $product_info[0]->shop_name; ?>"><?php echo $product_info[0]->shop_name; ?></a></h5>
+            <?php } else { ?>
+              <h5>Shop Name : <a href="#"> Unknown</a></h5>
+            <?php } ?>
+            <hr>
             <div class="d-flex align-items-center justify-content-center justify-content-lg-start">
 <!--               <div class="quantity d-flex align-items-center">
                 <div class="dec-btn">-</div>

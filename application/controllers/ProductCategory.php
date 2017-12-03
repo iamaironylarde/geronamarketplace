@@ -35,20 +35,22 @@ class ProductCategory extends CORE_Controller {
             $category_id = $this->input->get('category',TRUE);
             $data['product_info']=$m_products->get_list(
               'products.is_deleted=0 AND category.product_type_id='.$product_type_id.' AND category.category_id='.$category_id,
-              'products.*,category.*,product_type.*',
+              'products.*,category.*,product_type.*,user_accounts.shop_name',
                 array(
                       array('category','category.category_id=products.category_id','left'),
                       array('product_type','product_type.product_type_id=category.product_type_id','left'),
+                      array('user_accounts','user_accounts.user_id=products.created_by','left'),
                   )
             );
           }
           else{
             $data['product_info']=$m_products->get_list(
               'products.is_deleted=0 AND category.product_type_id='.$product_type_id,
-              'products.*,category.*,product_type.*',
+              'products.*,category.*,product_type.*,user_accounts.shop_name',
                 array(
                       array('category','category.category_id=products.category_id','left'),
                       array('product_type','product_type.product_type_id=category.product_type_id','left'),
+                      array('user_accounts','user_accounts.user_id=products.created_by','left'),
                   )
             );
           }
@@ -60,11 +62,12 @@ class ProductCategory extends CORE_Controller {
           $data['singlecat']="search";
           $searchitem = $this->input->get('searchitem',TRUE);
           $data['product_info']=$m_products->get_list(
-            'products.is_deleted=0 AND products.product_name LIKE "%'.$searchitem.'%"',
+            'products.is_deleted=0 AND (products.product_name LIKE "%'.$searchitem.'%" OR user_accounts.shop_name LIKE "%'.$searchitem.'%")',
             'products.*,category.*',
               array(
                     array('category','category.category_id=products.category_id','left'),
                     array('product_type','product_type.product_type_id=category.product_type_id','left'),
+                    array('user_accounts','user_accounts.user_id=products.created_by','left'),
                 )
           );
         }

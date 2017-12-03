@@ -34,7 +34,7 @@ class ProductDetails extends CORE_Controller {
           $data['product_info']=$m_products->get_list(
             'products.is_deleted=0 AND products.product_id='.$product_id,
             'products.*,category.*,CONCAT(user_accounts.user_fname," ",user_accounts.user_lname) as sellername,
-            user_accounts.user_address,user_accounts.user_mobile,product_type.product_type',
+            user_accounts.user_address,user_accounts.user_mobile,product_type.product_type,user_accounts.shop_name',
               array(
                     array('category','category.category_id=products.category_id','left'),
                     array('product_type','product_type.product_type_id=category.product_type_id','left'),

@@ -16,6 +16,14 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
         <li class="treeview">
+          <a href="Index">
+            <i class="fa fa-dashboard"></i> <span>Homepage</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+        </li>
+        <li class="treeview">
           <a href="Products">
             <i class="fa fa-dashboard"></i> <span>My Products</span>
             <span class="pull-right-container">
@@ -39,6 +47,10 @@
             </span>
           </a>
         </li>
+        
+        <?php
+          if($this->session->user_group_id==1){
+        ?>
         <li class="treeview">
           <a href="Category">
             <i class="fa fa-dashboard"></i> <span>Category</span>
@@ -47,9 +59,6 @@
             </span>
           </a>
         </li>
-        <?php
-          if($this->session->user_group_id==1){
-        ?>
         <li class="treeview">
           <a href="AdminCarousel">
             <i class="fa fa-dashboard"></i> <span>Carousel</span>
