@@ -78,6 +78,7 @@ class MyAccount extends CORE_Controller {
                                     'brgy_id'=>$result->row()->brgy_id,
                                     'brgy_name'=>$result->row()->brgy_name,
                                     'eta_delivery'=>$result->row()->eta_delivery,
+                                    'shop_name'=>$result->row()->shop_name,
 
                                 )
                             );

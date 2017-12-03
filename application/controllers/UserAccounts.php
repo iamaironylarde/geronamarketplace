@@ -113,6 +113,20 @@ class UserAccounts extends CORE_Controller {
 
             break;
 
+            case 'updateshopname':
+                $m_users=$this->Users_model;
+
+                $user_id=$this->session->user_id;
+                $m_users->shop_name = $this->input->post('shop_name',TRUE);
+                $m_users->modify($user_id);
+                $this->session->shop_name=$this->input->post('shop_name',TRUE);
+                $response['title']='Success!';
+                $response['stat']='success';
+                $response['msg']='User information successfully updated.';
+                echo json_encode($response);
+
+            break;
+
             case 'changepassword':
                 $m_users=$this->Users_model;
                 $user_id = $this->session->user_id;

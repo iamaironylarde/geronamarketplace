@@ -45,6 +45,7 @@
                         <th >Category</th>
                         <th >Price(PHP)</th>
                         <th >Qty Left</th>
+                        <th >Shop Name</th>
                         <th style="text-align:center;">Action</th>
                     </tr>
                 </thead>
@@ -58,6 +59,7 @@
                         <th >Category</th>
                         <th >Price(PHP)</th>
                         <th >Qty Left</th>
+                        <th >Shop Name</th>
                         <th style="text-align:center;">Action</th>
                     </tr>
                 </tfoot>
@@ -204,7 +206,8 @@
                 { targets:[3],data: "category" },
                 { targets:[4],data: "price" },
                 { targets:[5],data: "qty" },
-                { targets:[6],data: "is_newarrival",
+                { targets:[6],data: "shop_name" },
+                { targets:[7],data: "is_newarrival",
                     render: function (data, type, full, meta){
                         if(data==1){
                             var _view='<button class="btn btn-xs" name="changestat" data-toggle="tooltip" data-placement="top" title="Unset as New Product"><i class="fa fa-eye"></i> </button>';
@@ -464,7 +467,31 @@
 
     });
 
+    $('.shopname').click(function(){
+      $('#modal_shopname').modal('toggle');
+    });
 
+    $('.btn_updateshopname').click(function(){
+        updateShopName().done(function(response){
+                    if(response.stat="success"){
+                         window.location.reload(true);
+                    }
+                    }).always(function(){
+                        $.unblockUI();
+                    });
+    });
+
+    var updateShopName=function(){
+        var _data=$('#frm_shopname').serializeArray();
+
+        return $.ajax({
+            "dataType":"json",
+            "type":"POST",
+            "url":"UserAccounts/transaction/updateshopname",
+            "data":_data,
+            "beforeSend": showSpinningProgress($('#'))
+        });
+    };
 
 
  </script>

@@ -38,7 +38,7 @@ class Orders extends CORE_Controller {
                 $user=$this->session->user_id;
                 $response['data']=$m_order_items->get_list(
                     $filter,
-                    'order_items.*,orders.*,products.product_name,order_status.*,unit.*,discount.*,CONCAT(user_accounts.user_fname," ",user_accounts.user_lname) as ordered_by',
+                    'order_items.*,orders.*,products.product_name,order_status.*,unit.*,discount.*,CONCAT(user_accounts.user_fname," ",user_accounts.user_lname) as ordered_by,user_shop.shop_name',
                     array(
                           array('products','products.product_id=order_items.product_id','left'),
                           array('orders','orders.order_id=order_items.order_id','left'),
@@ -46,6 +46,7 @@ class Orders extends CORE_Controller {
                           array('unit','unit.unit_id=order_items.unit_id','left'),
                           array('discount','discount.discount_id=unit.discount_id','left'),
                           array('user_accounts','user_accounts.user_id=orders.user_id','left'),
+                          array('user_accounts as user_shop','user_shop.user_id=products.created_by','left'),
                       )
                     );
                 echo json_encode($response);
@@ -64,7 +65,7 @@ class Orders extends CORE_Controller {
                 $response['msg']='Order Status successfully updated.';
                 $response['row_updated']=$m_order_items->get_list(
                     $order_items_id,
-                    'order_items.*,orders.*,products.product_name,order_status.*,unit.*,discount.*,CONCAT(user_accounts.user_fname," ",user_accounts.user_lname) as ordered_by',
+                    'order_items.*,orders.*,products.product_name,order_status.*,unit.*,discount.*,CONCAT(user_accounts.user_fname," ",user_accounts.user_lname) as ordered_by,user_shop.shop_name',
                     array(
                           array('products','products.product_id=order_items.product_id','left'),
                           array('orders','orders.order_id=order_items.order_id','left'),
@@ -72,6 +73,7 @@ class Orders extends CORE_Controller {
                           array('unit','unit.unit_id=order_items.unit_id','left'),
                           array('discount','discount.discount_id=unit.discount_id','left'),
                           array('user_accounts','user_accounts.user_id=orders.user_id','left'),
+                          array('user_accounts as user_shop','user_shop.user_id=products.created_by','left'),
                       )
                     );
                 echo json_encode($response);

@@ -52,6 +52,7 @@
                         <th >Status</th>
                         <th >Date Ordered</th>
                         <th >Ordered By</th>
+                        <th >Shop Name</th>
                         <th style="text-align:center;">Action</th>
                     </tr>
                 </thead>
@@ -69,6 +70,7 @@
                         <th >Status</th>
                         <th >Date Ordered</th>
                         <th >Ordered By</th>
+                        <th >Shop Name</th>
                         <th style="text-align:center;">Action</th>
                     </tr>
                 </tfoot>
@@ -137,7 +139,8 @@
                 { targets:[7],data: "order_status_name" },
                 { targets:[8],data: "order_date"},
                 { targets:[9],data: "ordered_by"},
-                { targets:[10],data: "order_date",
+                { targets:[10],data: "shop_name"},
+                { targets:[11],data: "order_date",
                     render: function (data, type, full, meta){
                       var _shipped='<button class="btn btn-success btn-xs" name="shipped" style="margin:2px;" data-toggle="tooltip" data-placement="top">Shipped </button>';
                       var _processing='<button class="btn btn-primary btn-xs" name="processing" data-toggle="tooltip" data-placement="top">Processing </button>';
@@ -215,7 +218,9 @@
         });
     };
 
-
+    $('.shopname').click(function(){
+      alert();
+    });
 
  </script>
 </body>

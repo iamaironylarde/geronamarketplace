@@ -129,7 +129,9 @@
 
     $(".numeric").autoNumeric('init');
 
-
+    $('.shopname').click(function(){
+      alert();
+    });
 
  </script>
 </body>

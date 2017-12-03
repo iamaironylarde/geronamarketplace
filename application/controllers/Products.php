@@ -47,9 +47,10 @@ class Products extends CORE_Controller {
                 $user=$this->session->user_id;
                 $response['data']=$m_products->get_list(
                     $filter,
-                    'products.*,category.category',
+                    'products.*,category.category,user_shop.shop_name',
                     array(
                           array('category','category.category_id=products.category_id','left'),
+                          array('user_accounts as user_shop','user_shop.user_id=products.created_by','left'),
                       )
                     );
                 echo json_encode($response);
