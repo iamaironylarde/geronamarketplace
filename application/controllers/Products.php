@@ -79,9 +79,10 @@ class Products extends CORE_Controller {
                 $response['msg'] = 'Product information successfully created.';
                 $response['row_added'] = $m_products->get_list(
                     $product_id,
-                    'products.*,category.category',
+                    'products.*,category.category,user_shop.shop_name',
                     array(
                           array('category','category.category_id=products.category_id','left'),
+                          array('user_accounts as user_shop','user_shop.user_id=products.created_by','left'),
                       )
                     );
                 echo json_encode($response);
@@ -127,9 +128,10 @@ class Products extends CORE_Controller {
                 $response['msg']='Product information successfully updated.';
                 $response['row_updated']=$m_products->get_list(
                     $product_id,
-                    'products.*,category.category',
+                    'products.*,category.category,user_shop.shop_name',
                     array(
                           array('category','category.category_id=products.category_id','left'),
+                          array('user_accounts as user_shop','user_shop.user_id=products.created_by','left'),
                       )
                     );
                 echo json_encode($response);
@@ -154,9 +156,10 @@ class Products extends CORE_Controller {
                 $response['msg']='Product information successfully updated.';
                 $response['row_updated']=$m_products->get_list(
                     $product_id,
-                    'products.*,category.category',
+                    'products.*,category.category,user_shop.shop_name',
                     array(
                           array('category','category.category_id=products.category_id','left'),
+                          array('user_accounts as user_shop','user_shop.user_id=products.created_by','left'),
                       )
                     );
                 echo json_encode($response);
