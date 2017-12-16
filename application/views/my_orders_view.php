@@ -73,6 +73,7 @@
 							 	?>
 							 	<hr>
 								<h5>Order # :<?php echo $row->order_no; ?> </h5>
+								<small><strong>Date & Time Ordered : # :<?php echo $row->readable_date; ?> </strong></small><br>
 								<small><strong>Delivery address : <?php echo $row->order_address.', '.$row->brgy_name.', Gerona Tarlac'; ?></strong></small><br>
 								<?php if($row->order_status_name=="Processing"){ ?>
 								<small><strong>Estimated Delivery Time : Not Yet Available.</strong></small>

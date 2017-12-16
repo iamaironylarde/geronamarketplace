@@ -44,7 +44,7 @@ class MyOrders extends CORE_Controller {
 
         $cat['myoders']=$m_orders->get_list(
           'user_accounts.user_id='.$user_id,
-          'orders.*,products.*,order_items.*,order_status.order_status_name,unit.*,discount.*,brgy.*',
+          "orders.*,DATE_FORMAT(orders.order_date,'%M %e, %Y @ %h:%i %p') as readable_date,products.*,order_items.*,order_status.order_status_name,unit.*,discount.*,brgy.*",
                     array(
                           array('order_items','order_items.order_id=orders.order_id','left'),
                           array('products','products.product_id=order_items.product_id','left'),

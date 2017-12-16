@@ -47,7 +47,7 @@ class Order extends CORE_Controller {
                 $m_order->order_no = rand(10000,99999);
                 $m_order->order_address = $this->input->post('order_address', TRUE);
                 $m_order->order_city = $this->input->post('order_city', TRUE);
-                $m_order->order_date = date('Y-m-d');
+                $m_order->order_date = date('Y-m-d H:i:s');
                 $m_order->order_phonenum = $this->input->post('order_phonenum', TRUE);
                 $m_order->shipping_fee = $this->input->post('shippingfee', TRUE);
                 $m_order->save();
