@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '174.138.20.221',
-	'username' => 'ash',
-	'password' => 'ash',
+	'hostname' => '',
+	'username' => '',
+	'password' => '',
 	'database' => 'meatshop',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
